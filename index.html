@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教育初心 - 体育老师专访</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #00c6ff, #0072ff);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 50px 60px;
+        }
+
+        .news-section {
+            margin-bottom: 40px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #00c6ff;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 20px;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+        }
+
+        .paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 2;
+            color: #444;
+            text-indent: 2em;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            border-left: 5px solid #00c6ff;
+            font-style: italic;
+            font-size: 1.1em;
+            color: #555;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4em;
+            color: #00c6ff;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1em;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite linear;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(0px) rotate(360deg);
+                opacity: 0.7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>探体育老师教育初心，悟育人之道</h1>
+            <p>—— 尹老师的教育故事专访</p>
+        </header>
+
+        <main class="content">
+            <div class="news-section">
+                <p class="paragraph">
+                    近日，为深入了解教育工作者的教育理念与职业感悟，本校校报记者对体育老师尹老师进行了一次专访。
+                </p>
+            </div>
+
+            <div class="news-section">
+                <h2 class="section-title">育人初衷：助力学生全面发展</h2>
+                <p class="paragraph">
+                    当被问及做老师的初衷时，张老师目光坚定，语气平和却充满力量：
+                </p>
+                <div class="quote">
+                    我的初衷很简单，就是把学生教好，让他们实现德智体美劳全面发展。体育教育并非只是让学生掌握运动技能，更重要的是培养他们坚韧不拔的意志、团结协作的精神和健康向上的生活态度。在体育课堂上，学生们挥洒汗水，挑战自我，不仅能增强体质，还能在这个过程中学会如何面对挫折、如何与人合作。我希望通过自己的努力，为学生的成长铺就一条坚实的道路。
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h2 class="section-title">好老师标准：品德与资历并重</h2>
+                <p class="paragraph">
+                    在探讨什么样的老师才是好老师这一问题时，张老师陷入了沉思，随后认真地说道：
+                </p>
+                <div class="quote">
+                    我认为老师的好坏与品德和资历都息息相关。品德是老师的立身之本，一个品德高尚的老师，能够用自己的言行举止为学生树立正确的价值观和道德观。他们关爱学生、尊重学生，公平公正地对待每一个孩子，让学生在温暖和信任的氛围中成长。而资历则代表着老师的教学经验和专业素养。经验丰富的老师能够更好地把握教学节奏，根据学生的不同特点制定合适的教学方法，帮助学生更高效地学习。只有品德与资历兼备，才能成为一名真正的好老师。
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h2 class="section-title">师长影响：传承关爱与奉献精神</h2>
+                <p class="paragraph">
+                    提及是否受到自己师长的影响时，尹老师的眼神中流露出一丝怀念与感激：
+                </p>
+                <div class="quote">
+                    当然有，我的老师对我影响深远。当时条件比较艰苦，教学资源匮乏，但我的老师却从未放弃过任何一个学生。他们总是尽自己最大的努力，为我们创造更好的学习条件。记得冬天教室没有暖气，老师就把自己的棉衣拿给我们穿；为了让我们有更多的体育器材可以使用，老师自己动手制作简易的篮球架和跳绳。他们不仅在学习上给予我们指导，在生活上也无微不至地关心我们。正是他们的关爱和奉献，让我感受到了老师这个职业的伟大和神圣，也让我坚定了成为一名老师的决心。如今，我也成为了一名老师，我希望能够把这种关爱和奉献精神传承下去，让更多的学生受益。
+                </div>
+            </div>
+
+            <div class="news-section">
+                <p class="paragraph">
+                    此次采访让我们对体育老师的教育理念和职业追求有了更深刻的认识。尹老师用自己的亲身经历诠释了教育的真谛，他的话语如同一盏明灯，照亮了学生前行的道路，也激励着更多的教育工作者坚守初心，为教育事业贡献自己的力量。
+                </p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>教育，是一场爱与责任的传承</p>
+        </footer>
+    </div>
+</body>
+</html>

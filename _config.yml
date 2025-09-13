@@ -1,0 +1,22 @@
+# GitHub Pages 配置
+title: "教育初心 - 体育老师专访"
+description: "探体育老师教育初心，悟育人之道 - 张老师的教育故事专访"
+url: ""
+baseurl: ""
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# 排除文件
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .github/
+  - 新闻稿.txt.txt
+
+# 包含文件
+include:
+  - index.html
